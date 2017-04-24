@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>09/2001 Total Daily Flights</title>
+  <link rel="stylesheet" href="./static/lib/css//bootstrap.min.css">
+  <link rel="stylesheet" href="./static/lib/css/keen-dashboards.css">
+
+</head>
+<body class="application">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="./">2001 September Total Daily Flights by Origin and Destination</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+
+    <div class="row">
+
+      <!-- Chart -->  
+      <div id="chartContainer">
+        <script src="http://d3js.org/d3.v4.min.js"></script>
+        <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
+        <script type="text/javascript">
+          var svg = dimple.newSvg("#chartContainer", 890, 800);
+          d3.csv("./static/data/cancelled_flights.csv", function (data) {
+            var myChart = new dimple.chart(svg, data);
+            myChart.setBounds(95, 25, 575, 435)
+            myChart.addCategoryAxis("x", "Destination");
+            myChart.addCategoryAxis("y", "Origin");
+            var z = myChart.addMeasureAxis("z", "Total");
+            //z.overrideMax = 90;
+            var bubble = myChart.addSeries("Cancelled", dimple.plot.bubble);
+
+            myChart.defaultColors = [
+    			new dimple.color("LightGreen"), 
+    			new dimple.color("Yellow"), 
+    			new dimple.color("Gold"),
+    			new dimple.color("Orange"),
+    			new dimple.color("LightSalmon"),
+    			new dimple.color("Red"),
+			];
+            bubble.addOrderRule("Cancelled")
+
+			svg.selectAll("title_text")
+          		.data(["% of Cancelled Flights"])
+          		.enter()
+          		.append("text")
+            	.attr("x", 680)
+            	.attr("y", 60)
+            	.style("font-family", "sans-serif")
+            	.style("font-size", "10px")
+            	.style("color", "Black")
+            	.text(function (d) { return d; });
+			
+            myChart.addLegend(740, 60, 60, 930, "right", bubble);
+
+            var story = myChart.setStoryboard("Day");
+            myChart.draw();
+          });
+        </script>
+      </div>
+      <!-- Chart -->
+
+    </div>
+
+  </div>
+
+    <hr>
+  </div>
+</body>
+</html>
