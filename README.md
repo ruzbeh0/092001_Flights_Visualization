@@ -12,6 +12,7 @@ was to the system.
 04/22 - Jonathan Black: Improved visualization of cancelled flights, by representing them as colors instead
 of bubble size.
 04/22 - Jonathan Black: Added representation of total flights by using bubble size.
+04/24 - Jonathan Black: Added legend to better explain the visualization context.
 
 # Resources
 https://github.com/PMSI-AlignAlytics/dimple/wiki

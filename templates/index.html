@@ -25,7 +25,7 @@
         <script src="http://d3js.org/d3.v4.min.js"></script>
         <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
         <script type="text/javascript">
-          var svg = dimple.newSvg("#chartContainer", 890, 800);
+          var svg = dimple.newSvg("#chartContainer", 890, 500);
           d3.csv("./static/data/cancelled_flights.csv", function (data) {
             var myChart = new dimple.chart(svg, data);
             myChart.setBounds(95, 25, 575, 435)
@@ -64,6 +64,11 @@
         </script>
       </div>
       <!-- Chart -->
+      
+      <!-- Summary -->
+      <div id="Summary">
+      	This visualization shows how the event of 09/11 affected aviation network. The bubble sizes in the visualization represents total flights, while the colors represent cancelled flights. Note that after 09/11 it takes weeks for the system to return to normal. 
+      </div>
 
     </div>
 
