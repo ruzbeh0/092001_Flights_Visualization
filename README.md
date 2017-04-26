@@ -23,6 +23,9 @@ of bubble size.
 04/22 - Jonathan Black: Added representation of total flights by using bubble size.
 04/24 - Paul Johnson: Added legend to better explain the visualization context.
 04/24 - Jacob Muller: Improved comments on index.html and design description.
+04/25 - Grader 1: Removed commented coded from index.html.
+04/25 - Grader 1: Updated circle to use total flights as area and not as radius.
+04/25 - Grader 1: Formatted the code.
 
 # Resources
 https://github.com/PMSI-AlignAlytics/dimple/wiki
